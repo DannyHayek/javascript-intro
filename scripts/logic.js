@@ -56,27 +56,36 @@ function generateReport(students) {
 // ============================= Question 2 =============================
 
 class BankAccount {
+
+    // O(1)
     constructor(ownerName, initialBalance) {
         this.ownerName = ownerName;
         this.currentBalance = initialBalance;
+        this.actionHistory = [];
     }
 
+    // O(1)
     deposit(amount) {
         this.currentBalance += amount;
+        this.actionHistory.push(`Deposited ${amount}`)
     }
 
+    // O(1)
     withdraw(amount) {
         let withdrawn = 0;
         if (this.currentBalance < amount) {
             console.log("You do not have enough balance to withdraw that amount! Withdrawing maximum...")
             withdrawn = this.currentBalance;
             this.currentBalance = 0;
+            this.actionHistory.push(`Withdrew ${amount}`)
             return withdrawn;
         }
         this.currentBalance -= amount;
+        this.actionHistory.push(`Withdrew ${amount}`)
         return amount;
     }
 
+    // O(1)
     transferTo(anotherAccount, amount) {
         if (this.currentBalance < amount) {
             console.log("You do not have enough balance to transfer that amount! Transfer stopped!")
@@ -85,17 +94,25 @@ class BankAccount {
         }        
     }
 
+    // O(1)
     getSummary() {
         console.log(`${this.ownerName}'s balance is ${this.currentBalance}.`);
     }
+
+
+
 }
 
 const acc1 = new BankAccount("John", 500);
 const acc2 = new BankAccount("Sara", 300); 
 
-acc1.getSummary(); // John's balance is $300 
-acc2.getSummary(); // Sara's balance is $500 
+acc1.getSummary(); // John's balance is $500
+acc2.getSummary(); // Sara's balance is $300 
 
-acc1.transferTo(acc2, 250); 
-acc1.getSummary(); // John's balance is $300 
-acc2.getSummary(); // Sara's balance is $500 
+acc1.transferTo(acc2, 250); // This will succeed
+acc1.getSummary(); // John's balance is $250
+acc2.getSummary(); // Sara's balance is $550
+
+acc2.transferTo(acc1, 600); // This will fail and account summaries will remain the same
+acc1.getSummary(); // John's balance is $250
+acc2.getSummary(); // Sara's balance is $550
