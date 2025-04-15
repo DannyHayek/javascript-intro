@@ -76,4 +76,16 @@ class BankAccount {
         this.currentBalance -= amount;
         return amount;
     }
+
+    transferTo(anotherAccount, amount) {
+        if (this.currentBalance < amount) {
+            console.log("You do not have enough balance to transfer that amount! Transfer stopped!")
+        } else {
+            anotherAccount.deposit(this.BankAccount.withdraw(amount));
+        }        
+    }
+
+    getSummary() {
+        console.log(`${this.ownerName}'s balance is ${this.currentBalance}.`);
+    }
 }
