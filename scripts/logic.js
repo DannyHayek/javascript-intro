@@ -1,4 +1,4 @@
-// ============= Question 1 =============
+// ============================= Question 1 =============================
 
 const students = [
     {name: "Jeff", scores: [45, 20, 100]},
@@ -51,3 +51,13 @@ function generateReport(students) {
 
 
 console.log(generateReport(students));
+
+
+// ============================= Question 2 =============================
+
+class BankAccount {
+    constructor(ownerName, initialBalance) {
+        this.ownerName = ownerName;
+        this.initialBalance = initialBalance;
+    }
+}
