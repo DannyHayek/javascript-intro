@@ -1,3 +1,5 @@
+// ============= Question 1 =============
+
 const students = [
     {name: "Jeff", scores: [45, 20, 100]},
     {name: "Ahmad", scores: [70, 88, 63]},
@@ -22,8 +24,26 @@ function generateReport(students) {
         }
         
         avg = sum / num;
-        console.log(`${avg}`);
+        
+        if (avg >= 90) {
+            grade = "A";
+        } else if (avg >= 80) {
+            grade = "B";
+        } else if (avg >= 70) {
+            grade = "C";
+        } else if (avg >= 60) {
+            grade = "D";
+        }
+        
+        studentReports.push({
+            name: curStudent.name,
+            average: avg,
+            grade: grade,
+        })
     }
+
+    return studentReports;
 }
 
-generateReport(students);
+
+console.log(generateReport(students));
