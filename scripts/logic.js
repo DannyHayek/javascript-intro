@@ -55,13 +55,14 @@ function generateReport(students) {
 
 // ============================= Question 2 =============================
 
+// O(1) + O(1) + ... + O(n) => O(n)
 class BankAccount {
 
     // O(1)
     constructor(ownerName, initialBalance) {
         this.ownerName = ownerName;
         this.currentBalance = initialBalance;
-        this.actionHistory = [];
+        this.actionHistory = [`Initial balance ${initialBalance}`];
     }
 
     // O(1)
@@ -77,7 +78,7 @@ class BankAccount {
             console.log("You do not have enough balance to withdraw that amount! Withdrawing maximum...")
             withdrawn = this.currentBalance;
             this.currentBalance = 0;
-            this.actionHistory.push(`Withdrew ${amount}`)
+            this.actionHistory.push(`Withdrew ${withdrawn}`)
             return withdrawn;
         }
         this.currentBalance -= amount;
@@ -99,7 +100,10 @@ class BankAccount {
         console.log(`${this.ownerName}'s balance is ${this.currentBalance}.`);
     }
 
-
+    // O(n) where n is the number of actions taken by the account owner
+    printHistory() {
+        console.log(`Action history for ${this.ownerName}: ${this.actionHistory.join(" - ")}`)
+    }
 
 }
 
@@ -116,3 +120,11 @@ acc2.getSummary(); // Sara's balance is $550
 acc2.transferTo(acc1, 600); // This will fail and account summaries will remain the same
 acc1.getSummary(); // John's balance is $250
 acc2.getSummary(); // Sara's balance is $550
+
+acc1.deposit(200); // This will succeed
+acc1.withdraw(50); // this will succeed
+acc1.withdraw(500); // This will fail and be changed accordingly in history
+
+acc1.printHistory();
+
+acc1.getSummary();
