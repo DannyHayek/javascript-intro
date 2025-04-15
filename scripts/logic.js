@@ -50,7 +50,7 @@ function generateReport(students) {
 }
 
 
-// console.log(generateReport(students));
+console.log(generateReport(students));
 
 
 // ============================= Question 2 =============================
