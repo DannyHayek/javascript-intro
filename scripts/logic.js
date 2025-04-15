@@ -92,6 +92,7 @@ class BankAccount {
             console.log("You do not have enough balance to transfer that amount! Transfer stopped!")
         } else {
             anotherAccount.deposit(this.withdraw(amount));
+            console.log("Transfer complete!")
         }        
     }
 
