@@ -18,8 +18,10 @@ function generateReport(students) {
         let grade = "F";
         let curStudent = students[i];
 
+
+        // 
         for (let j = 0; j < curStudent.scores.length; j++) {
-            sum += curStudent.scores[j];
+            sum += curStudent.scores.at(j);
             num++;
         }
         
