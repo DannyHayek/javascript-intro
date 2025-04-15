@@ -129,3 +129,19 @@ acc1.withdraw(500); // This will fail and be changed accordingly in history
 acc1.printHistory();
 
 acc1.getSummary();
+
+
+
+// ============================= Question 3 =============================
+
+
+
+let taskList = document.getElementById("taskList");
+
+document.createElement("li")
+
+function addTask () {
+    let taskText = document.getElementById("taskText").value;
+
+    console.log(`${taskText}`);
+}
