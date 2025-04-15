@@ -58,6 +58,22 @@ console.log(generateReport(students));
 class BankAccount {
     constructor(ownerName, initialBalance) {
         this.ownerName = ownerName;
-        this.initialBalance = initialBalance;
+        this.currentBalance = initialBalance;
+    }
+
+    deposit(amount) {
+        this.currentBalance += amount;
+    }
+
+    withdraw(amount) {
+        let withdrawn = 0;
+        if (this.currentBalance < amount) {
+            console.log("You do not have enough balance to withdraw that amount! Withdrawing maximum...")
+            withdrawn = this.currentBalance;
+            this.currentBalance = 0;
+            return withdrawn;
+        }
+        this.currentBalance -= amount;
+        return amount;
     }
 }
