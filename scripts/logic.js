@@ -144,4 +144,6 @@ function addTask () {
     newTask.textContent = taskText;
 
     list.appendChild(newTask);
+
+    document.getElementById("taskText").value = "";
 }
