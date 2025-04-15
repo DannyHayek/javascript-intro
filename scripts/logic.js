@@ -135,13 +135,13 @@ acc1.getSummary();
 // ============================= Question 3 =============================
 
 
-
-let taskList = document.getElementById("taskList");
-
-document.createElement("li")
-
 function addTask () {
+    let list = document.getElementById("taskList");
+
     let taskText = document.getElementById("taskText").value;
 
-    console.log(`${taskText}`);
+    let newTask = document.createElement("li");
+    newTask.textContent = taskText;
+
+    list.appendChild(newTask);
 }
