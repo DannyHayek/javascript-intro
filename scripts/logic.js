@@ -8,18 +8,20 @@ const students = [
     {name: "John", scores: [45, 20, 100]},
 ];
 
+// O(n) * O(m) => O(n * m) where at worst n = m => O(n * n) => O(n^2)
 function generateReport(students) {
     const studentReports = [];
     
+    // O(m) where m is the length of the students array
     for (let i = 0; i < students.length; i++) {
         let avg = 0;
         let sum = 0;
         let num = 0;
         let grade = "F";
-        let curStudent = students[i];
+        let curStudent = students.at(i);
 
 
-        // 
+        // O(n) where n is the length of the scores array
         for (let j = 0; j < curStudent.scores.length; j++) {
             sum += curStudent.scores.at(j);
             num++;
