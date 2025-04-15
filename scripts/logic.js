@@ -50,7 +50,7 @@ function generateReport(students) {
 }
 
 
-console.log(generateReport(students));
+// console.log(generateReport(students));
 
 
 // ============================= Question 2 =============================
@@ -81,7 +81,7 @@ class BankAccount {
         if (this.currentBalance < amount) {
             console.log("You do not have enough balance to transfer that amount! Transfer stopped!")
         } else {
-            anotherAccount.deposit(this.BankAccount.withdraw(amount));
+            anotherAccount.deposit(this.withdraw(amount));
         }        
     }
 
@@ -89,3 +89,13 @@ class BankAccount {
         console.log(`${this.ownerName}'s balance is ${this.currentBalance}.`);
     }
 }
+
+const acc1 = new BankAccount("John", 500);
+const acc2 = new BankAccount("Sara", 300); 
+
+acc1.getSummary(); // John's balance is $300 
+acc2.getSummary(); // Sara's balance is $500 
+
+acc1.transferTo(acc2, 250); 
+acc1.getSummary(); // John's balance is $300 
+acc2.getSummary(); // Sara's balance is $500 
