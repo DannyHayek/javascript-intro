@@ -8,7 +8,7 @@ const students = [
     {name: "John", scores: [45, 20, 100]},
 ];
 
-// O(n) * O(m) => O(n * m) where at worst n = m => O(n * n) => O(n^2)
+// O(n) * O(m) => O(n * m)
 function generateReport(students) {
     const studentReports = [];
     
@@ -141,9 +141,14 @@ function addTask () {
     let taskText = document.getElementById("taskText").value;
 
     let newTask = document.createElement("li");
+    newTask.setAttribute("id", "tasks");
     newTask.textContent = taskText;
 
     list.appendChild(newTask);
 
     document.getElementById("taskText").value = "";
 }
+
+// let ul = document.getElementById("taskList");
+
+// ul.addEventListener('click', )
