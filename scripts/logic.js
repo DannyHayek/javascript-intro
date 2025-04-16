@@ -20,7 +20,6 @@ function generateReport(students) {
         let grade = "F";
         let curStudent = students.at(i);
 
-
         // O(n) where n is the length of the scores array
         for (let j = 0; j < curStudent.scores.length; j++) {
             sum += curStudent.scores.at(j);
@@ -134,8 +133,13 @@ acc1.getSummary();
 
 // ============================= Question 3 =============================
 
+const tasks = [];
+
+const taskbtn = document.getElementById("button");
+taskbtn.addEventListener("click", addTask);
 
 function addTask () {
+ 
     let list = document.getElementById("taskList");
 
     let taskText = document.getElementById("taskText").value;
@@ -148,7 +152,3 @@ function addTask () {
 
     document.getElementById("taskText").value = "";
 }
-
-// let ul = document.getElementById("taskList");
-
-// ul.addEventListener('click', )
