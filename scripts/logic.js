@@ -160,15 +160,26 @@ taskbtn.addEventListener("click", addTask);
 function addTask () {
     tasks.push(document.getElementById("taskText").value);
     
-    list.innerHTML += `<li>${document.getElementById("taskText").value}</li>`;
+    //list.innerHTML += `<li>${document.getElementById("taskText").value}</li>`;
 
     document.getElementById("taskText").value = "";
 
-    //renderList();
+    renderList();
 }
 
 function renderList () {
-    for (let i = 0; i < tasks.length; i++) {
-        list.innerHTML += `<li>${tasks[i]}</li>`;
-    }
+    console.log(tasks);
+
+    let currentList = list.childNodes.length;
+    console.log(currentList);
+
+
+    let diff = (currentList - tasks.length);
+    console.log(diff);
+
+    list.innerHTML += `<li>${tasks[currentList]}</li>`;
+
+    // for (let i = 0; i < tasks.length; i++) {
+    //     list.innerHTML += `<li>${tasks[i]}</li>`;
+    // }
 }
