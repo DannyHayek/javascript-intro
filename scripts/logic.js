@@ -137,8 +137,11 @@ const tasks = [];
 
 const taskbtn = document.getElementById("button");
 const list = document.getElementById("taskList");
+let listElem = document.getElementById("list-elem");
+
 
 taskbtn.addEventListener("click", addTask);
+list.addEventListener("click", removeTask);
 
 // function adTask () {                 Old Implementation
  
@@ -165,19 +168,23 @@ function addTask () {
     document.getElementById("taskText").value = "";
 
     renderList();
+    listElem = document.getElementById("list-elem");
+}
+
+function removeTask () {
+    listElem = document.getElementById("list-elem");
+    tasks.pop();
+    listElem.remove();
+    list.removeChild(listElem);
+    renderList();
 }
 
 function renderList () {
-    console.log(tasks);
-
     let currentList = list.childNodes.length;
-    console.log(currentList);
-
 
     let diff = (currentList - tasks.length);
-    console.log(diff);
 
-    list.innerHTML += `<li>${tasks[currentList]}</li>`;
+    list.innerHTML += `<li id = "list-elem">${tasks[currentList]}</li>`;
 
     // for (let i = 0; i < tasks.length; i++) {
     //     list.innerHTML += `<li>${tasks[i]}</li>`;
