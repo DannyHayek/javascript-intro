@@ -136,19 +136,39 @@ acc1.getSummary();
 const tasks = [];
 
 const taskbtn = document.getElementById("button");
+const list = document.getElementById("taskList");
+
 taskbtn.addEventListener("click", addTask);
 
-function addTask () {
+// function adTask () {                 Old Implementation
  
-    let list = document.getElementById("taskList");
+//     let list = document.getElementById("taskList");
 
-    let taskText = document.getElementById("taskText").value;
+//     let taskText = document.getElementById("taskText").value;
 
-    let newTask = document.createElement("li");
-    newTask.setAttribute("id", "tasks");
-    newTask.textContent = taskText;
+//     let newTask = document.createElement("li");
+//     newTask.setAttribute("id", "tasks");
+//     newTask.textContent = taskText;
 
-    list.appendChild(newTask);
+//     list.appendChild(newTask);
+
+//     document.getElementById("taskText").value = "";
+
+//     renderList();
+// }
+
+function addTask () {
+    tasks.push(document.getElementById("taskText").value);
+    
+    list.innerHTML += `<li>${document.getElementById("taskText").value}</li>`;
 
     document.getElementById("taskText").value = "";
+
+    //renderList();
+}
+
+function renderList () {
+    for (let i = 0; i < tasks.length; i++) {
+        list.innerHTML += `<li>${tasks[i]}</li>`;
+    }
 }
